@@ -27,7 +27,10 @@ auth.onAuthStateChanged(user => {
                 console.log((snapshot.bytesTransferred / audio.size) * 100 + "%");
                 document.querySelector("#audioUpload").value =
                     (snapshot.bytesTransferred / audio.size) * 100;
-                    
+                if(document.querySelector("#audioUpload").value == 100) {
+                    alert('Song has been added successfully');
+                    location.reload();
+                }   
             }); 
                
         });
