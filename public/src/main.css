@@ -1,0 +1,299 @@
+.body__tag {
+    --color-primary: #055d91;
+    --color-primary-dark: #015d69;
+    --color-secondary: #252c6a;
+    --color-error: #cc3333;
+    --color-success: #4bb544;
+    --border-radius: 4px;
+
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background-color: aliceblue;
+    background-size: cover;
+}
+
+body{
+    background-color: aliceblue;
+   
+}
+
+.container {
+    width: 400px;
+    max-width: 400px;
+    margin: 1rem;
+    padding: 2rem;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    background: #ffffff;
+}
+
+.container,
+.form__input,
+.form__button {
+    font: 500 1rem 'Quicksand', sans-serif;
+}
+
+.form--hidden {
+    display: none;
+}
+
+.form > *:first-child {
+    margin-top: 0;
+}
+
+.form > *:last-child {
+    margin-bottom: 0;
+}
+
+.form__title {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form__message {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.form__message--success {
+    color: var(--color-success);
+}
+
+.form__message--error {
+    color: var(--color-error);
+}
+
+.form__input-group {
+    margin-bottom: 1rem;
+}
+
+.form__input {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    border-radius: var(--border-radius);
+    border: 1px solid #dddddd;
+    outline: none;
+    background: #eeeeee;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.form__input:focus {
+    border-color: var(--color-primary);
+    background: #ffffff;
+}
+
+.form__input--error {
+    color: var(--color-error);
+    border-color: var(--color-error);
+}
+
+.form__input-error-message {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-error);
+}
+
+.form__button {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+    cursor: pointer;
+    background: var(--color-primary);
+}
+
+.form__button:hover {
+    background: var(--color-primary-dark);
+}
+
+.form__button:active {
+    transform: scale(0.98);
+}
+
+.form__text {
+    text-align: center;
+}
+
+.form__link {
+    color: var(--color-secondary);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form__link:hover {
+    text-decoration: underline;
+}
+
+#button {
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    background: #055d91;
+}
+a {
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    
+}
+#button:hover {
+    color: whitesmoke;
+    background: #015d69;
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
+header{
+    font: 500 1rem 'Quicksand', sans-serif;
+    text-align: center;
+}
+
+.btn__container{
+    margin: 0;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    text-align: center;
+}
+
+.file_container{
+    width: 470px;
+    padding: 35px 20px;
+    margin: auto;
+    border: 4px solid #023c72;
+    padding: 10px;
+}
+
+.audio-player {
+    width: 470px;
+    padding: 35px 20px;
+    margin: auto;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.player-controls {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#radioIcon {
+    width: 30px;
+    height: 30px;
+    background: url('https://image.flaticon.com/icons/svg/149/149429.svg') no-repeat center;
+}
+
+#playAudio {
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    width: 30px;
+    height: 30px;
+    background: url('https://image.flaticon.com/icons/svg/149/149125.svg') no-repeat center;
+    background-size: contain;
+}
+
+.pause {
+    background: url('https://image.flaticon.com/icons/svg/149/149127.svg') no-repeat center;
+    background-size: contain;
+}
+
+p {
+    margin: 0 0 0 5px;
+    line-height: 1;
+    display: inline-flex;
+}
+
+small {
+    font-size: 10px;
+}
+
+#seekObjContainer {
+    position: relative;
+    width: 300px;
+    margin: 0 5px;
+    height: 5px;
+}
+#seekObj {
+      position:relative;
+      width: 100%;
+      height: 100%;
+      background-color: #e3e3e3;
+      border: 1px solid black;
+
+}     
+#percentage {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background-color: coral;
+}
+
+@media(max-width: 357px){
+    .audio-player,
+    header, #image,
+    .file_container,
+    .uploadMusic,
+    .uploadProgress,
+    .btn__container
+    {
+        float:none;
+        text-align:center;
+        width:100%;
+    }
+    .file_container{
+        justify-content: center;
+    }
+
+    header{
+        padding-bottom:20px;
+    }
+
+    header h1, h3{
+        margin-top:40px;
+    }
+
+    .btn__container{
+        display:flex;
+        width:100%;
+        position: relative;
+        margin-left: 50px;
+    }
+
+}
+    
+

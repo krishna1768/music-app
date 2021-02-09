@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js"></script>
+    <title>music-app | Home</title>
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="./src/main.css">
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to music-app</h1>
+        <h2>Enjoy the music</h2>
+    </header><br>
+    <div id ="image">
+        <img src="imagesbg.jpeg" />
+    </div>
+    <br><br>
+    <div class="btn__container">
+        <button id="button" onclick="location.href='./login.html'">Log In</button>
+        <div class="divider"></div>
+        <button id="button" onclick="location.href='./signup.html'">Sign Up</button>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        </script>
+    <script src="./src/main.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyBHjer-hvZTu2DlaHsffdBSwgfPzjaXcFA",
+            authDomain: "music-app-9669f.firebaseapp.com",
+            projectId: "music-app-9669f",
+            storageBucket: "music-app-9669f.appspot.com",
+            messagingSenderId: "968814617529",
+            appId: "1:968814617529:web:62f84acc292fcc27280c68",
+            measurementId: "G-S0NWTXZ7P9"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
+
+</body>
+
+</html>

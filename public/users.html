@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js"></script>
+    <title>music-app | Dashboard</title>
+    <!--<link rel="shortcut icon" href="/assets/favicon.ico">-->
+    <link rel="stylesheet" href="./src/main.css">
+</head>
+
+<body>
+    <header>
+        <h3>Welcome </h3>
+        <h5>Let hear some music</h5>
+    </header><br>
+
+    <div class="audio-player">
+
+        <audio id="audio">
+            <source  type="audio/mp3">
+        </audio>
+
+        <div class="player-controls">
+
+            <div id="radioIcon"></div>
+
+            <button id="playAudio"></button>
+
+            <div id="seekObjContainer">
+                <div id="seekObj">
+                    <div id="percentage"></div>
+                </div>
+            </div>
+
+            <p><small id="currentTime">00:00</small></p>
+
+        </div>
+    </div><br><br>
+    <div>
+        <form>
+            <div class="audio-player">
+                <input type="file" value="upload" class="uploadMusic" data-buttonText="Music"
+                    accept="audio/mp3,audio/odd,audio/wav" />
+                <progress value="0" min="0" max="100" class="uploadProgress" id="audioUpload">
+                    Audio Upload Progress</progress>
+            </div>
+        </form>
+    </div>
+    
+    <br>
+    <div class="btn__container">
+        <button id="button" onclick="location.href='./index.html'">Log out</button>
+    </div><br>
+
+    <script>
+        function $(id) { return document.getElementById(id); };
+        const media = document.getElementById('audio');
+
+        let ui = {
+            play: 'playAudio',
+            audio: 'audio',
+            percentage: 'percentage',
+            seekObj: 'seekObj',
+            currentTime: 'currentTime'
+        };
+
+        function togglePlay() {
+            if (media.paused === false) {
+                media.pause();
+                $(ui.play).classList.remove('pause');
+            } else {
+                media.play();
+                $(ui.play).classList.add('pause');
+            }
+        }
+
+        function calculatePercentPlayed() {
+            let percentage = (media.currentTime / media.duration).toFixed(2) * 100;
+            $(ui.percentage).style.width = `${percentage}%`;
+        }
+
+        function calculateCurrentValue(currentTime) {
+            const currentMinute = parseInt(currentTime / 60) % 60;
+            const currentSecondsLong = currentTime % 60;
+            const currentSeconds = currentSecondsLong.toFixed();
+            const currentTimeFormatted = `${currentMinute < 10 ? `0${currentMinute}` : currentMinute}:${currentSeconds < 10 ? `0${currentSeconds}` : currentSeconds
+                }`;
+
+            return currentTimeFormatted;
+        }
+
+        function initProgressBar() {
+            const currentTime = calculateCurrentValue(media.currentTime);
+            $(ui.currentTime).innerHTML = currentTime;
+            $(ui.seekObj).addEventListener('click', seek);
+
+            media.onended = () => {
+                $(ui.play).classList.remove('pause');
+                $(ui.percentage).style.width = 0;
+                $(ui.currentTime).innerHTML = '00:00';
+            };
+
+            function seek(e) {
+                const percent = e.offsetX / this.offsetWidth;
+                media.currentTime = percent * media.duration;
+            }
+
+            calculatePercentPlayed();
+        }
+
+        $(ui.play).addEventListener('click', togglePlay)
+        $(ui.audio).addEventListener('timeupdate', initProgressBar);
+    </script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyBHjer-hvZTu2DlaHsffdBSwgfPzjaXcFA",
+            authDomain: "music-app-9669f.firebaseapp.com",
+            projectId: "music-app-9669f",
+            storageBucket: "music-app-9669f.appspot.com",
+            messagingSenderId: "968814617529",
+            appId: "1:968814617529:web:62f84acc292fcc27280c68",
+            measurementId: "G-S0NWTXZ7P9"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        const auth = firebase.auth();
+        const fs = firebase.firestore();
+        const db = firebase.database();
+        const fbs = firebase.storage();
+    </script>
+    <script src="./src/users.js"></script>
+</body>
+
+</html>
